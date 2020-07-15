@@ -45,7 +45,7 @@ public class LoginRegRestController {
 			
 		} else {
 			return new ResponseEntity(new Status("Invalid User... "), HttpStatus.CONFLICT);
-		}
+		} 
 
 	}
 
