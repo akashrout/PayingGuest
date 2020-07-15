@@ -3,17 +3,21 @@ package com.example.demo.user.controller;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.user.entity.RegistrationEntity;
+import com.example.demo.user.repo.UserRepository;
 import com.example.demo.user.service.LoginRegService;
 
 // TODO: Auto-generated Javadoc
@@ -25,6 +29,9 @@ public class IndexController {
 
 	@Autowired
 	private LoginRegService loginRegService;
+
+	@Autowired
+	private UserRepository userRepository;
 
 	/**
 	 * Index page.
@@ -92,25 +99,35 @@ public class IndexController {
 	 */
 	@GetMapping("/addroom")
 	public String addRoom(HttpSession session, Model model) {
-		System.out.println("session is: " + session.getAttribute("username"));
-		if (session.getAttribute("username") == null) {
-			model.addAttribute("session_expired", true);
-			return "public/login";
-		} else {
-			return "public/provide";
-		}
+		
+		  System.out.println("session is: " + session.getAttribute("username")); 
+		  if  (session.getAttribute("username") == null) {
+		  model.addAttribute("session_expired", true); return "public/login"; } else {
+		  return "public/provide"; }
+		 
 
 	}
 
 	@GetMapping("/image")
-	public void showProductImage(HttpSession session,  HttpServletResponse response) throws IOException {
+	public void showProductImage(HttpSession session, HttpServletResponse response) throws IOException {
 		response.setContentType("image/jpeg"); // Or whatever format you wanna use
 		RegistrationEntity registrationEntity = loginRegService
 				.getUserByName(session.getAttribute("username").toString());
 
-	 
-		InputStream is = new ByteArrayInputStream( registrationEntity.getProfile_pic());
-		IOUtils.copy(is, response.getOutputStream());		 
+		InputStream is = new ByteArrayInputStream(registrationEntity.getProfile_pic());
+		IOUtils.copy(is, response.getOutputStream());
+	}
+
+	@GetMapping("/pic")
+	public ResponseEntity<byte[]> pic(HttpSession session) throws IOException {
+		Optional<RegistrationEntity> registOptional = userRepository
+				.findById(session.getAttribute("username").toString());
+		byte[] image = null;
+		if (registOptional.isPresent()) {
+			image = registOptional.get().getProfile_pic();
+
+		}
+		return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(image);
 	}
 
 }

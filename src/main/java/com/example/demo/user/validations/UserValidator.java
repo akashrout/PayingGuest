@@ -1,4 +1,4 @@
-package com.example.demo.user.validationa;
+package com.example.demo.user.validations;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

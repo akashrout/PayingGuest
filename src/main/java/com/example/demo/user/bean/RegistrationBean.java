@@ -1,91 +1,64 @@
-package com.example.demo.user.entity;
+package com.example.demo.user.bean;
 
 import java.util.Arrays;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.Table;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class RegistrationEntity.
+ * The Class RegistrationBean.
  */
-@Entity
-@Table(name = "registration")
-public class RegistrationEntity {
+public class RegistrationBean {
 
 	/** The id. */
-
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "user_id")
 	private Long id;
 
-	/** The reg uname. */
-	@Id
-	@Column(name = "username")
+	/** The username. */
 	private String username;
 
-	/** The reg password. */
-	@Column(name = "password")
+	/** The password. */
 	private String password;
 
 	/** The reg name. */
-	@Column(name = "name")
 	private String reg_name;
 
-	/** The reg dob. */
-	/*
-	 * @Column(name = "dob") private String reg_dob;
-	 */
-
-	/** The email. */
-	@Column(name = "email")
+	/** The reg email. */
 	private String reg_email;
 
 	/** The reg gender. */
-	@Column(name = "gender")
 	private String reg_gender;
 
 	/** The reg contact. */
-	@Column(name = "contact")
 	private String reg_contact;
 
 	/** The role. */
-	@Column(name = "role")
 	private String role;
 
 	/** The profile pic. */
 	@Lob
-	@Column(name = "profile_Picture", columnDefinition = "mediumblob")
+
 	private byte[] profile_pic;
 
 	/**
-	 * Instantiates a new registration entity.
+	 * Instantiates a new registration bean.
 	 */
-	public RegistrationEntity() {
+	public RegistrationBean() {
 		super();
 	}
-	
-	
-	
 
 	/**
-	 * Instantiates a new registration entity.
+	 * Instantiates a new registration bean.
 	 *
-	 * @param username the username
-	 * @param password the password
-	 * @param reg_name the reg name
-	 * @param reg_email the reg email
-	 * @param reg_gender the reg gender
+	 * @param username    the username
+	 * @param password    the password
+	 * @param reg_name    the reg name
+	 * @param reg_email   the reg email
+	 * @param reg_gender  the reg gender
 	 * @param reg_contact the reg contact
-	 * @param role the role
+	 * @param role        the role
 	 * @param profile_pic the profile pic
 	 */
-	public RegistrationEntity(String username, String password, String reg_name, String reg_email, String reg_gender,
+	public RegistrationBean(String username, String password, String reg_name, String reg_email, String reg_gender,
 			String reg_contact, String role, byte[] profile_pic) {
 		super();
 		this.username = username;
@@ -98,11 +71,8 @@ public class RegistrationEntity {
 		this.profile_pic = profile_pic;
 	}
 
-
-
-
 	/**
-	 * Instantiates a new registration entity.
+	 * Instantiates a new registration bean.
 	 *
 	 * @param id          the id
 	 * @param username    the username
@@ -114,7 +84,7 @@ public class RegistrationEntity {
 	 * @param role        the role
 	 * @param profile_pic the profile pic
 	 */
-	public RegistrationEntity(Long id, String username, String password, String reg_name, String reg_email,
+	public RegistrationBean(Long id, String username, String password, String reg_name, String reg_email,
 			String reg_gender, String reg_contact, String role, byte[] profile_pic) {
 		super();
 		this.id = id;
@@ -297,7 +267,7 @@ public class RegistrationEntity {
 	 */
 	@Override
 	public String toString() {
-		return "RegistrationEntity [id=" + id + ", username=" + username + ", password=" + password + ", reg_name="
+		return "RegistrationBean [id=" + id + ", username=" + username + ", password=" + password + ", reg_name="
 				+ reg_name + ", reg_email=" + reg_email + ", reg_gender=" + reg_gender + ", reg_contact=" + reg_contact
 				+ ", role=" + role + ", profile_pic=" + Arrays.toString(profile_pic) + "]";
 	}

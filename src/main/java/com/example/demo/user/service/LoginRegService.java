@@ -1,5 +1,6 @@
 package com.example.demo.user.service;
 
+import com.example.demo.user.bean.RegistrationBean;
 import com.example.demo.user.entity.RegistrationEntity;
 
 // TODO: Auto-generated Javadoc
@@ -25,7 +26,7 @@ public interface LoginRegService {
 	 */
 	public boolean isValidLoginDetails(String username,String password);
 	
-	public RegistrationEntity createUser(RegistrationEntity entity);
+	public RegistrationEntity createUser(RegistrationBean registrationBean);
 	
 	public RegistrationEntity getUserByName(String username);
 

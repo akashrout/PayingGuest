@@ -7,8 +7,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.user.bean.RegistrationBean;
 import com.example.demo.user.entity.RegistrationEntity;
 import com.example.demo.user.repo.UserRepository;
+import com.example.demo.user.reqresptransform.UserRequestTransformer;
 import com.example.demo.user.service.LoginRegService;
 
 @Service
@@ -42,11 +44,11 @@ public class LoginRegServiceImpl implements LoginRegService {
 	}
 
 	@Override
-	public RegistrationEntity createUser(RegistrationEntity entity) {
+	public RegistrationEntity createUser(RegistrationBean registrationBean) {
 		// TODO Auto-generated method stub
 		log.info("Entering Create User...");
 		log.debug("Entering Create User...");
-		//
+		RegistrationEntity entity = UserRequestTransformer.getUserEntity(registrationBean);
 		log.info("Saving User details to DB...");
 		log.debug("Saving User details to DB...");
 		userRepository.save(entity);

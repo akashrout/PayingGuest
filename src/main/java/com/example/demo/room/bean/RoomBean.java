@@ -1,99 +1,77 @@
-package com.example.demo.room.entity;
+package com.example.demo.room.bean;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class RoomEntity.
+ * The Class RoomBean.
  */
-@Entity
-@Table(name = "rooms")
-public class RoomEntity {
+public class RoomBean {
 
 	/** The id. */
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "room_id")
 	private Long id;
 
 	/** The username. */
-	@Column(name = "usernaame")
 	private String username;
 
 	/** The address. */
-	@Column(name = "address")
 	private String address;
 
 	/** The city. */
-	@Column(name = "city")
 	private String city;
 
 	/** The locality. */
-	@Column(name = "locality")
 	private String locality;
 
 	/** The maxpeople. */
-	@Column(name = "maxP")
 	private String maxpeople;
 
 	/** The gender. */
-	@Column(name = "gender")
 	private String gender;
 
 	/** The rooms. */
-	@Column(name = "rooms")
 	private String rooms;
 
 	/** The ac. */
-	@Column(name = "ac")
 	private String ac;
 
 	/** The wifi. */
-	@Column(name = "wifi")
 	private String wifi;
 
 	/** The food. */
-	@Column(name = "food")
 	private String food;
 
 	/** The cost. */
-	@Column(name = "cost")
 	private String cost;
 
 	/** The status. */
-	@Column(name = "status")
 	private String status;
 
 	/**
-	 * Instantiates a new room entity.
+	 * Instantiates a new room bean.
 	 */
-	public RoomEntity() {
+	public RoomBean() {
 		super();
 	}
 
 	/**
-	 * Instantiates a new room entity.
+	 * Instantiates a new room bean.
 	 *
-	 * @param id        the id
-	 * @param username  the username
-	 * @param address   the address
-	 * @param city      the city
-	 * @param locality  the locality
+	 * @param id the id
+	 * @param username the username
+	 * @param address the address
+	 * @param city the city
+	 * @param locality the locality
 	 * @param maxpeople the maxpeople
-	 * @param gender    the gender
-	 * @param rooms     the rooms
-	 * @param ac        the ac
-	 * @param wifi      the wifi
-	 * @param food      the food
-	 * @param cost      the cost
-	 * @param status    the status
+	 * @param gender the gender
+	 * @param rooms the rooms
+	 * @param ac the ac
+	 * @param wifi the wifi
+	 * @param food the food
+	 * @param cost the cost
+	 * @param status the status
 	 */
-	public RoomEntity(Long id, String username, String address, String city, String locality, String maxpeople,
+	public RoomBean(Long id, String username, String address, String city, String locality, String maxpeople,
 			String gender, String rooms, String ac, String wifi, String food, String cost, String status) {
 		super();
 		this.id = id;
@@ -112,9 +90,9 @@ public class RoomEntity {
 	}
 	
 	
+	
 
-
-	public RoomEntity(String username, String address, String city, String locality, String maxpeople, String gender,
+	public RoomBean(String username, String address, String city, String locality, String maxpeople, String gender,
 			String rooms, String ac, String wifi, String food, String cost, String status) {
 		super();
 		this.username = username;
@@ -143,7 +121,7 @@ public class RoomEntity {
 	/**
 	 * Sets the id.
 	 *
-	 * @param id the id to set
+	 * @param id the new id
 	 */
 	public void setId(Long id) {
 		this.id = id;
@@ -159,21 +137,9 @@ public class RoomEntity {
 	}
 
 	/**
-	 * To string.
-	 *
-	 * @return the string
-	 */
-	@Override
-	public String toString() {
-		return "RoomEntity [id=" + id + ", username=" + username + ", address=" + address + ", city=" + city
-				+ ", locality=" + locality + ", maxpeople=" + maxpeople + ", gender=" + gender + ", rooms=" + rooms
-				+ ", ac=" + ac + ", wifi=" + wifi + ", food=" + food + ", cost=" + cost + ", status=" + status + "]";
-	}
-
-	/**
 	 * Sets the username.
 	 *
-	 * @param username the username to set
+	 * @param username the new username
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -191,7 +157,7 @@ public class RoomEntity {
 	/**
 	 * Sets the address.
 	 *
-	 * @param address the address to set
+	 * @param address the new address
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -209,7 +175,7 @@ public class RoomEntity {
 	/**
 	 * Sets the city.
 	 *
-	 * @param city the city to set
+	 * @param city the new city
 	 */
 	public void setCity(String city) {
 		this.city = city;
@@ -227,7 +193,7 @@ public class RoomEntity {
 	/**
 	 * Sets the locality.
 	 *
-	 * @param locality the locality to set
+	 * @param locality the new locality
 	 */
 	public void setLocality(String locality) {
 		this.locality = locality;
@@ -245,7 +211,7 @@ public class RoomEntity {
 	/**
 	 * Sets the maxpeople.
 	 *
-	 * @param maxpeople the maxpeople to set
+	 * @param maxpeople the new maxpeople
 	 */
 	public void setMaxpeople(String maxpeople) {
 		this.maxpeople = maxpeople;
@@ -263,7 +229,7 @@ public class RoomEntity {
 	/**
 	 * Sets the gender.
 	 *
-	 * @param gender the gender to set
+	 * @param gender the new gender
 	 */
 	public void setGender(String gender) {
 		this.gender = gender;
@@ -281,7 +247,7 @@ public class RoomEntity {
 	/**
 	 * Sets the rooms.
 	 *
-	 * @param rooms the rooms to set
+	 * @param rooms the new rooms
 	 */
 	public void setRooms(String rooms) {
 		this.rooms = rooms;
@@ -299,7 +265,7 @@ public class RoomEntity {
 	/**
 	 * Sets the ac.
 	 *
-	 * @param ac the ac to set
+	 * @param ac the new ac
 	 */
 	public void setAc(String ac) {
 		this.ac = ac;
@@ -317,7 +283,7 @@ public class RoomEntity {
 	/**
 	 * Sets the wifi.
 	 *
-	 * @param wifi the wifi to set
+	 * @param wifi the new wifi
 	 */
 	public void setWifi(String wifi) {
 		this.wifi = wifi;
@@ -335,7 +301,7 @@ public class RoomEntity {
 	/**
 	 * Sets the food.
 	 *
-	 * @param food the food to set
+	 * @param food the new food
 	 */
 	public void setFood(String food) {
 		this.food = food;
@@ -353,7 +319,7 @@ public class RoomEntity {
 	/**
 	 * Sets the cost.
 	 *
-	 * @param cost the cost to set
+	 * @param cost the new cost
 	 */
 	public void setCost(String cost) {
 		this.cost = cost;
@@ -371,10 +337,24 @@ public class RoomEntity {
 	/**
 	 * Sets the status.
 	 *
-	 * @param status the status to set
+	 * @param status the new status
 	 */
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
+	@Override
+	public String toString() {
+		return "RoomBean [id=" + id + ", username=" + username + ", address=" + address + ", city=" + city
+				+ ", locality=" + locality + ", maxpeople=" + maxpeople + ", gender=" + gender + ", rooms=" + rooms
+				+ ", ac=" + ac + ", wifi=" + wifi + ", food=" + food + ", cost=" + cost + ", status=" + status + "]";
+	}
+	
+	
 
 }
